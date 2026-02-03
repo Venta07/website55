@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد مبيعات أنوار العالم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="international-theme.css">
+    <link rel="icon" href="images/Vmksa-logo.png" type="image/png">
+</head>
+<body>
+    <button class="mobile-menu-toggle" aria-label="القائمة">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    
+    <div class="mobile-menu-overlay"></div>
+    
+    <div class="container">
+        <!-- Floating Action Button -->
+        <div class="fab-container">
+            <button class="fab" id="generateReportBtn" title="توليد التقرير">
+                <i class="fas fa-file-alt"></i>
+            </button>
+            <button class="fab" id="resetBtn" title="تصفير العدادات">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+        <header class="app-header">
+            <div class="header-logo">
+                <img src="images/Vmksa-logo.png" alt="Virgin Mobile Logo" class="logo">
+            </div>
+            <div id="friendi-logo-container"></div>
+            <h1 class="header-title">
+                <span class="title-line">عداد مبيعات</span>
+                <span class="title-line main-title">أنوار العالم</span>
+            </h1>
+        </header>
+        
+        <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="mobile-logo-container">
+                <img src="images/Vmksa-logo.png" alt="Virgin Mobile" class="mobile-nav-logo">
+                <span>قائمة التصفح</span>
+            </div>
+            <button class="mobile-close-btn" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <ul class="mobile-nav-links">
+                <li class="mobile-nav-item">
+                    <a href="#virgin" class="mobile-nav-link active" data-tab="virgin">
+                        <i class="fas fa-sim-card"></i>
+                        <span>باقات فيرجن</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#friendi" class="mobile-nav-link" data-tab="friendi">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>باقات فريندي</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#switch" class="mobile-nav-link" data-tab="switch">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>باقات سويتش</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#data" class="mobile-nav-link" data-tab="data">
+                        <i class="fas fa-database"></i>
+                        <span>باقات البيانات</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#international" class="mobile-nav-link" data-tab="international">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>المكالمات الدولية</span>
+                    </a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#reports" class="mobile-nav-link" data-tab="reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>التقارير</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="employee-info">
+            <input type="text" id="employeeName" placeholder="اسم الموظف">
+            <input type="text" id="userName" placeholder="كود الموظف" value="Dir-">
+            <input type="text" id="location" placeholder="الموقع">
+            <input type="number" id="custody" placeholder="العهدة">
+            <input type="number" id="discounts" placeholder="خصومات اليوم">
+            <input type="date" id="saleDate">
+        </div>
+
+        <div class="packages-tabs">
+            <button class="tab-button active" data-tab="virgin-tab">
+                <i class="fas fa-mobile-alt"></i> فيرجن
+            </button>
+            <button class="tab-button" data-tab="friendi-tab">
+                <i class="fas fa-user-friends"></i> فريندي
+            </button>
+            <button class="tab-button" data-tab="switch-tab">
+                <i class="fas fa-exchange-alt"></i> سويتش
+            </button>
+            <button class="tab-button" data-tab="data-tab">
+                <i class="fas fa-database"></i> بيانات
+            </button>
+            <button class="tab-button" data-tab="international-tab">
+                <i class="fas fa-phone-alt"></i> مكالمات دولية
+            </button>
+        </div>
+
+        <div class="tab-content active" id="virgin-tab">
+            <div id="virgin-packages" class="packages-list">
+                <!-- Virgin packages will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="friendi-tab">
+            <div id="friendi-packages" class="packages-list">
+                <!-- Friendi packages will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="switch-tab">
+            <div id="switch-packages" class="packages-list">
+                <!-- Switch packages will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="data-tab">
+            <div id="data-packages" class="packages-list">
+                <!-- Data packages will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="international-tab">
+            <div id="international-packages" class="packages-list">
+                <!-- International call packages will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="actions">
+            <button onclick="generateReport()" class="action-btn btn-generate">
+                <i class="fas fa-file-alt"></i> إنشاء التقرير
+            </button>
+            <button onclick="resetAll()" class="action-btn btn-reset">
+                <i class="fas fa-redo"></i> إعادة تعيين
+            </button>
+        </div>
+
+        <div class="report-container">
+            <h3><i class="fas fa-clipboard-list"></i> التقرير</h3>
+            <textarea id="reportOutput" readonly></textarea>
+            <button onclick="copyToClipboard()" class="action-btn btn-copy">
+                <i class="far fa-copy"></i> نسخ التقرير
+            </button>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <p>صنع بواسطة أنوار العالم</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

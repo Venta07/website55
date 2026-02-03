@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: virgin-counter
+    env: static
+    buildCommand: ""
+    staticPublishPath: "."
+    envVars:
+      - key: NODE_VERSION
+        value: 14.x
+
+# This configuration will automatically deploy your site to Render
+# when you push to the main branch on GitHub

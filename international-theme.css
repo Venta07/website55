@@ -1,0 +1,44 @@
+/* تنسيقات الثيم الأزرق السماوي لتبويب المكالمات الدولية */
+body.international-theme {
+    --primary-color: #00a8e8;
+    --primary-hover: #0095d9;
+    --header-bg: #00a8e8;
+}
+
+/* شريط العنوان */
+body.international-theme .app-header {
+    background: linear-gradient(135deg, #00a8e8, #0088b8) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* النص في شريط العنوان */
+body.international-theme .app-header h1 {
+    color: white !important;
+    text-shadow: none !important;
+}
+
+/* أزرار القائمة */
+body.international-theme .mobile-menu-toggle,
+body.international-theme .tab-button.active,
+body.international-theme .mobile-nav-header,
+body.international-theme .floating-action-button {
+    background: var(--primary-color) !important;
+}
+
+/* أزرار الباقات */
+body.international-theme .package-card button {
+    background-color: var(--primary-color) !important;
+}
+
+body.international-theme .package-card button:hover {
+    background-color: var(--primary-hover) !important;
+}
+
+/* تأثيرات إضافية */
+body.international-theme .fab:hover {
+    background: var(--primary-hover) !important;
+}
+
+body.international-theme .tab-button.active {
+    border-bottom: 3px solid white !important;
+}
