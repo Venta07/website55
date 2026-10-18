@@ -399,6 +399,12 @@ function preparePackages() {
 // Call this function to prepare packages when the script loads
 preparePackages();
 
+const services = [
+    { id: 'ownershipTransfer', displayName: 'نقل ملكية' },
+    { id: 'replacementSim', displayName: 'بدل فاقد' },
+    { id: 'ownerUpdate', displayName: 'تحديث مالك' }
+];
+
 // Initialize counters
 let counters = {};
 
@@ -423,6 +429,7 @@ function initApp() {
     renderPackageList('switch-packages', packages.switch);
     renderPackageList('data-packages', packages.data);
     renderPackageList('international-packages', packages.international);
+    renderPackageList('service-counters', services);
     
     // Initialize light effects
     initLightEffects();
@@ -546,6 +553,9 @@ function initLightEffects() {
 
 // Initialize counters
 function initializeCounters() {
+    services.forEach(service => {
+        counters[service.id] = 0;
+    });
     // Initialize all package counters to 0
     Object.values(packages).forEach(category => {
         category.forEach(pkg => {
@@ -694,9 +704,9 @@ function renderPackageList(containerId, packageList) {
             <div class="package-info">
                 <span class="package-name">${pkg.displayName}</span>
                 <div class="counter">
-                    <button onclick="updateCount('${pkg.id}', 1)"><i class="fas fa-plus"></i></button>
-                    <span id="${pkg.id}">0</span>
-                    <button onclick="updateCount('${pkg.id}', -1)"><i class="fas fa-minus"></i></button>
+                    <button type="button" aria-label="زيادة ${pkg.displayName}" onclick="updateCount('${pkg.id}', 1)"><i class="fas fa-plus"></i></button>
+                    <span id="${pkg.id}" aria-live="polite">0</span>
+                    <button type="button" aria-label="إنقاص ${pkg.displayName}" onclick="updateCount('${pkg.id}', -1)"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
         `;
@@ -773,6 +783,11 @@ function generateReport() {
     } else {
         report += 'لا توجد مبيعات مسجلة.';
     }
+
+    report += '\n\nالخدمات:\n';
+    services.forEach(service => {
+        report += `- ${service.displayName}: ${counters[service.id]}\n`;
+    });
 
     const reportOutput = document.getElementById('reportOutput');
     reportOutput.value = report;
