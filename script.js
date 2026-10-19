@@ -429,7 +429,7 @@ function initApp() {
     renderPackageList('switch-packages', packages.switch);
     renderPackageList('data-packages', packages.data);
     renderPackageList('international-packages', packages.international);
-    renderPackageList('service-counters', services);
+    renderServiceInputs();
     
     // Initialize light effects
     initLightEffects();
@@ -714,6 +714,32 @@ function renderPackageList(containerId, packageList) {
     });
 }
 
+function renderServiceInputs() {
+    const container = document.getElementById('service-counters');
+    if (!container) return;
+
+    container.innerHTML = services.map(service => `
+        <div class="package-card">
+            <div class="package-info">
+                <label class="package-name" for="${service.id}">${service.displayName}</label>
+                <input class="service-count-input" type="number" id="${service.id}"
+                    min="0" step="1" inputmode="numeric" value="0">
+            </div>
+        </div>
+    `).join('');
+
+    services.forEach(service => {
+        const input = document.getElementById(service.id);
+        input.addEventListener('input', () => {
+            const value = Number(input.value);
+            counters[service.id] = Number.isSafeInteger(value) && value >= 0 ? value : 0;
+        });
+        input.addEventListener('change', () => {
+            input.value = counters[service.id];
+        });
+    });
+}
+
 // Update counter value
 function updateCount(id, change) {
     if (!counters.hasOwnProperty(id)) {
@@ -848,7 +874,11 @@ function resetCounters() {
         counters[key] = 0;
         const element = document.getElementById(key);
         if (element) {
-            element.textContent = '0';
+            if (element.tagName === 'INPUT') {
+                element.value = '0';
+            } else {
+                element.textContent = '0';
+            }
         }
     });
     
